@@ -4,7 +4,7 @@ Title: R package for Stochastic Integrating
 Version: 0.1.0
 Author: Jinhong Du
 Maintainer: Jinhong Du <jayduking@gmail.com>
-Description: This package provides several stochastic methods of integrating including:
+Description: Providing several stochastic methods of integrating including:
     1. Stochastic Point Method.
     2. Mean Value Method.
     3. Important Sampling Method.
@@ -19,4 +19,3 @@ Suggests: knitr,
     rmarkdown,
     testthat
 VignetteBuilder: knitr
-Imports: stats
