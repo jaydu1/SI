@@ -1,6 +1,6 @@
 Package: SI
 Type: Package
-Title: R package for Stochastic Integrating
+Title: R Package For Stochastic Integrating
 Version: 0.1.0
 Author: Jinhong Du
 Maintainer: Jinhong Du <jayduking@gmail.com>
