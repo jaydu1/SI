@@ -28,7 +28,7 @@ The end point
 }
   \item{level}{
 %%     ~~Describe \code{level} here~~
-Stratifications, number of intervals
+Stratification, number of intervals
 }
   \item{N}{
 %%     ~~Describe \code{N} here~~
