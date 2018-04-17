@@ -9,4 +9,4 @@ The **SI** package provides several methods of stochastic Integrating including
 
 ## What can it does?
 
-It can be use to estimate one-dimension or multi-dimension integration by stochastic methods. And the estimated varaince (precision) is given.
+It can be use to estimate one-dimension or multi-dimension integration by stochastic methods. And the estimated variance (precision) is given.
