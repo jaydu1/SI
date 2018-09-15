@@ -6,12 +6,24 @@ SI.SPM <- function(
     M,       # the upper bound of h(x) in [from,to]
     N        # the number of points to be generated
 ){
-    x <- runif(N, min = from, max = to)
+    if(length(from)!=length(to)){
+        stop("Dimension not mathced!")
+    }
+    else{
+        dimension <- length(from)
+    }
+    x <- matrix(runif(N * dimension, min = from, max = to), N, dimension)
     y <- runif(N, min = 0, max = M)
     hx <- h(x)
+    if(length(hx)!=N){
+        stop("Dimension of outputs of h(x) not mathced!")
+    }
+    else{
+        dimension <- length(from)
+    }
     p_hat <- mean(y<=hx)
-    I <- p_hat*M*(to-from)
-    Var <- I*(M*(to-from)-I)/N
+    I <- p_hat * M * prod(to-from)
+    Var <- I * (M * prod(to-from) - I) / N
     return(list(I,Var))
 }
 

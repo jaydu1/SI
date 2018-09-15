@@ -1,5 +1,5 @@
 ## Resubmission
-Fixed some spelling error.
+Fixed problem about blanks between author, year and doi:
 
 ## Test environments
 * local OS X install, 3.3.2

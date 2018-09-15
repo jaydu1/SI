@@ -55,11 +55,11 @@ which means that we can use $\hat{I}$ to approximate $I$ better if we try more t
 To estimate the variance (or precision), we use the Central Limit Theorem and get 
 \begin{align*}
 \dfrac{\hat{p}-p}{Var(p)}&=\dfrac{\hat{p}-p}{\sqrt{\dfrac{p(1-p)}{N}}}\xrightarrow{D}N(0,1)\\
-\dfrac{\hat{I}_1-I}{\sqrt{\frac{1}{N}}}&\xrightarrow{D}N(0,[M(b-a)^2]p(1-p))
+\dfrac{\hat{I}_1-I}{\sqrt{\frac{1}{N}}}&\xrightarrow{D}N(0,[M(b-a)]^2p(1-p))
 \end{align*}
 
 Therefore, the variance can be estimated by
-$$Var(\hat{I}_1)\approx[M(b-a)^2]\hat{p}(1-\hat{p})$$
+$$Var(\hat{I}_1)\approx \dfrac{1}{N}[M(b-a)]^2\hat{p}(1-\hat{p})$$
 
 In **SI** package, use the following code to carry out stochastic point method.
 
