@@ -12,7 +12,7 @@ SI.SPM <- function(
     else{
         dimension <- length(from)
     }
-    x <- matrix(runif(N * dimension, min = from, max = to), N, dimension)
+    x <- matrix(runif(N * dimension, min = from, max = to), N, dimension, byrow = T)
     y <- runif(N, min = 0, max = M)
     hx <- h(x)
     if(length(hx)!=N){
@@ -35,10 +35,22 @@ SI.MVM <- function(
     to,      # right end point of x
     N        # the number of points to be generated
 ){
-    x <- runif(N, min = from, max = to)
+    if(length(from)!=length(to)){
+        stop("Dimension not mathced!")
+    }
+    else{
+        dimension <- length(from)
+    }
+    x <- matrix(runif(N * dimension, min = from, max = to), N, dimension, byrow = T)
     hx <- h(x)
-    I <- (to-from)* mean(hx)
-    Var <- mean(((to-from)*hx-I)^2)/N
+    if(length(hx)!=N){
+        stop("Dimension of outputs of h(x) not mathced!")
+    }
+    else{
+        dimension <- length(from)
+    }
+    I <- prod(to-from) * mean(hx)
+    Var <- mean((prod(to-from)*hx-I)^2)/N
     return(list(I,Var))
 }
 
