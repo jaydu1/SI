@@ -95,7 +95,7 @@ To estimate the variance (or precision), we use the Central Limit Theorem and ge
 \end{align*}
 where $$Var[h(U)]=\int_a^b\{h(u)-\mathbb{E}[h(U)]\}^2\dfrac{1}{b-a}\mathrm{d}u$$
 
-Since it can be estiamted by smaple variance $$Var[h(U)]\approx \dfrac{1}{N}\sum\limits_{i=1}^N(Y_i-\overline{Y})^2$$
+Since it can be estiamted by sample variance $$Var[h(U)]\approx \dfrac{1}{N}\sum\limits_{i=1}^N(Y_i-\overline{Y})^2$$
 we can estimate the variance of $\hat{I}_2$ by $$Var(\hat{I}_2)\approx \dfrac{(b-a)^2}{N^2}\sum\limits_{i=1}^N(Y_i-\overline{Y})^2$$
 
 In **SI** package, use the following code to carry out mean value method.
