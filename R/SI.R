@@ -50,19 +50,19 @@ SI.MVM <- function(
         dimension <- length(from)
     }
     I <- prod(to-from) * mean(hx)
-    Var <- mean((prod(to-from)*hx-I)^2)/N
+    Var <- mean(((to-from)*hx-I)^2)/N
     return(list(I,Var))
 }
 
 
 # Important Sampling Method
 SI.ISM <- function(
-    h,       # density h(x) to be integrated
-    g,       # test density g(x)
-    G_inv,   # inverse function of G(x)
-    N,       # the number of points to be generated
-    min_G = 0,
-    max_G = 1
+    h,         # density h(x) to be integrated
+    g,         # test density g(x)
+    G_inv,     # inverse function of G(x)
+    N,         # the number of points to be generated
+    min_G = 0, # the min value of G(x)
+    max_G = 1  # the max value of G(x)
 ){
     U <- runif(N,min_G,max_G)
     X <- G_inv(U)
@@ -70,6 +70,8 @@ SI.ISM <- function(
     Var <- mean((h(X)/g(X)*(max_G-min_G)-I)^2)/N
     return(list(I,Var))
 }
+
+
 
 # Stratified Sampling Method
 SI.SSM <- function(

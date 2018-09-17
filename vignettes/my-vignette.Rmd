@@ -61,6 +61,12 @@ To estimate the variance (or precision), we use the Central Limit Theorem and ge
 Therefore, the variance can be estimated by
 $$Var(\hat{I}_1)\approx \dfrac{1}{N}[M(b-a)]^2\hat{p}(1-\hat{p})$$
 
+For $m$-dimension function on $[a_1,b_1]\times \cdots \times[a_m,b_m]$, we also have
+\begin{align*}
+\hat{I}_1&=\hat{p}\prod\limits_{i=1}^m(b_i-a_i)\\
+Var(\hat{I}_1)&\approx \dfrac{1}{N}\left[M\prod\limits_{i=1}^m(b_i-a_i)\right]^2\hat{p}(1-\hat{p})
+\end{align*}
+
 In **SI** package, use the following code to carry out stochastic point method.
 
     ## To integrate exp(x) from -1 to 1
@@ -97,6 +103,12 @@ where $$Var[h(U)]=\int_a^b\{h(u)-\mathbb{E}[h(U)]\}^2\dfrac{1}{b-a}\mathrm{d}u$$
 
 Since it can be estiamted by sample variance $$Var[h(U)]\approx \dfrac{1}{N}\sum\limits_{i=1}^N(Y_i-\overline{Y})^2$$
 we can estimate the variance of $\hat{I}_2$ by $$Var(\hat{I}_2)\approx \dfrac{(b-a)^2}{N^2}\sum\limits_{i=1}^N(Y_i-\overline{Y})^2$$
+
+For $m$-dimension function on $[a_1,b_1]\times \cdots \times[a_m,b_m]$, we also have
+\begin{align*}
+\hat{I}_2&=\dfrac{1}{N}\prod\limits_{i=1}^m(b_i-a_i)\sum\limits_{i=1}^Nh(U_i)\\
+Var(\hat{I}_2)&\approx \dfrac{1}{N}\left[\prod\limits_{i=1}^m(b_i-a_i)\right]^2\sum\limits_{i=1}^N(Y_i-\overline{Y})^2
+\end{align*}
 
 In **SI** package, use the following code to carry out mean value method.
 
