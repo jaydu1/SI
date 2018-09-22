@@ -12,6 +12,9 @@ SI.SPM <- function(
     else{
         dimension <- length(from)
     }
+    if(from>=to){
+        return(list(0,0))
+    }
     x <- matrix(runif(N * dimension, min = from, max = to), N, dimension, byrow = T)
     y <- runif(N, min = 0, max = M)
     hx <- h(x)
@@ -41,6 +44,9 @@ SI.MVM <- function(
     else{
         dimension <- length(from)
     }
+    if(any(from>=to)){
+        return(list(0,0))
+    }
     x <- matrix(runif(N * dimension, min = from, max = to), N, dimension, byrow = T)
     hx <- h(x)
     if(length(hx)!=N){
@@ -64,6 +70,9 @@ SI.ISM <- function(
     min_G = 0, # the min value of G(x)
     max_G = 1  # the max value of G(x)
 ){
+    if(min_G>=max_G){
+        return(list(0,0))
+    }
     U <- runif(N,min_G,max_G)
     X <- G_inv(U)
     I <- mean(h(X)/g(X)*(max_G-min_G))
@@ -81,11 +90,14 @@ SI.SSM <- function(
     level,
     N        # the number of points to be generated
 ){
-    interval <- seq(from,to,length.out=level+1)
+    if(any(from>=to)){
+        return(list(0,0))
+    }
+    interval <- cbind(to,apply(c(1:level)%o% (to - from)/level,1,f<-function(x){x+to}))
     I <- 0
     Var <- 0
     for (i in c(1:level)){
-        MVMresult <- SI.MVM(h,interval[i],interval[i+1],as.integer(N/level))
+        MVMresult <- SI.MVM(h,interval[,i],interval[,i+1],as.integer(N/level))
         I <- I + MVMresult[[1]]
         Var <- Var + MVMresult[[2]]
     }
