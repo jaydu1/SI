@@ -1,7 +1,7 @@
 Package: SI
 Type: Package
 Title: Stochastic Integrating
-Version: 0.1.0
+Version: 0.2.0
 Author: Jinhong Du
 Maintainer: Jinhong Du <jayduking@gmail.com>
 Description: An implementation of four stochastic methods of integrating in R, including:
@@ -14,10 +14,11 @@ Description: An implementation of four stochastic methods of integrating in R, i
 License: GPL
 Encoding: UTF-8
 LazyData: true
-Date: 2018-04-13
+Date: 2018-09-22
 Depends: R (>= 3.0.1), 
     stats (>= 3.3.2)
 Suggests: knitr,
     rmarkdown,
     testthat
 VignetteBuilder: knitr
+RoxygenNote: 6.0.1

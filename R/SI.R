@@ -87,13 +87,14 @@ SI.SSM <- function(
     h,       # density h(x) to be integrated
     from,    # left end point of x
     to,      # right end point of x
-    level,
+    level,   # the number of strata to be divided
     N        # the number of points to be generated
 ){
     if(any(from>=to)){
         return(list(0,0))
     }
-    interval <- cbind(to,apply(c(1:level)%o% (to - from)/level,1,f<-function(x){x+to}))
+    interval <- cbind(to,matrix(apply(c(1:level)%o% (to - from)/level,1,f<-function(x){x+to}),length(from),level))
+    print(interval)
     I <- 0
     Var <- 0
     for (i in c(1:level)){
