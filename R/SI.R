@@ -87,7 +87,7 @@ SI.SSM <- function(
     h,       # density h(x) to be integrated
     from,    # left end point of x
     to,      # right end point of x
-    level,
+    level,   # the number of strata to be divided
     N        # the number of points to be generated
 ){
     if(any(from>=to)){
